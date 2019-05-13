@@ -1,0 +1,31 @@
+
+<meta charset="UTF-8">
+<p>取消原因：<br><input  id="cancelMsg" class="easyui-textbox" data-options="multiline:true" style="height: 200px;width: 586px"></p>
+<p class="div_span">
+	<span onclick="updataCancel()" id="sub" class="easyui-linkbutton" data-options="iconCls:'icon-ok'"><b>提交</b></span>
+	<span onclick="getHideOd()" id="cancel" class="easyui-linkbutton" data-options="iconCls:'icon-cancel'"><b>取消</b></span>
+</p>	
+<script type="text/javascript">
+	function updataCancel(){
+		var canc=$("#cancelMsg").textbox("getValue");
+		//管理员的取消订单
+		var row=$("#orderTb").datagrid("getSelected");
+		var dataState={
+			state:5,
+			orderId:row.id,
+			cancelReason:canc
+		}
+		$.ajax({
+			url:"orderServlet?mothed=updataStateOrder",
+			data:dataState,
+			dataType:"text",
+			success:function(text){
+
+				$("#orderTb").datagrid("load",{});	
+			}
+		});
+
+		var canc=$("#cancelMsg").textbox("setValue","");
+		getHideOd();
+	}
+</script>

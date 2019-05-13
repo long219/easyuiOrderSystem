@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
+	.w-h-100{
+		width: 100%;
+		height: 100%
+	}
+</style>
+<title>会员用户主页</title>
+	<script type="text/javascript" src="jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="jquery-easyui-datagridview/datagrid-detailview.js"></script>
+	<script type="text/javascript" src="easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript" src="datagridMenu.js"></script>
+	<script type="text/javascript" src="nameSpace.js"></script>
+	<script type="text/javascript" src="userMain.js"></script>
+	<link rel="stylesheet" type="text/css" href="themes/material/easyui.css">
+	<link rel="stylesheet" type="text/css" href="themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="themes/color.css">
+	<link rel="stylesheet" type="text/css" href="panelMain.css">
+</head>
+<body class="easyui-layout" style="font-family: cursive;">
+	<div data-options="region:'north',border:false" class="div_north">会员用户中心 <span id="userName" class="div_spans"></span></div>
+		<div data-options="region:'west',title:'菜单操作'" class="div_west" style="width:200px">
+			<div id="foldPanel" class="easyui-accordion" data-options="fit:true,border:false">
+				<div title="菜品信息" style="padding:10px;text-align: center" data-options="iconCls:'icon-reload'" >
+					<a href="javascript:void(0)" class="easyui-linkbutton c4 div_a" id="menuAll">菜品列表</a>
+				</div>
+				<div title="个人购物车" style="padding:10px" data-options="iconCls:'icon-reload'">
+					<a href="javascript:void(0)" class="easyui-linkbutton c6 div_a" id="myShoppingAll">购物车列表</a>
+				</div> 
+				<div title="个人订单" style="padding:10px" data-options="iconCls:'icon-reload'">
+					<a href="javascript:void(0)" class="easyui-linkbutton c7 div_a" id="myOrderAll">订单信息</a>
+				</div>
+				<div title="个人中心" style="padding:10px" data-options="iconCls:'icon-reload'">
+					<a href="javascript:void(0)" class="easyui-linkbutton c3 div_a" id="toMoney">余额充值</a>
+				</div>
+			</div>		
+		</div>
+		<div data-options="region:'center',title:'详情信息'" id="menuMsg">
+			<div id="userTab" class="easyui-tabs" data-options="fit:true,border:false,plain:true" >
+				
+			</div>
+		</div>
+</body>
+</html>

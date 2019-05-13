@@ -1,0 +1,18 @@
+.order-list{    width: 100%; margin: 1px auto; font-family: cursive; height: 100px; }
+.order-list table{  border:1px solid silver;border-collapse:collapse;word-break:break-word;width: 92%;}
+.order-list .trbody{    background-color: beige;text-align: left;    margin: 6px;height: 36px;}
+.order-list span{
+	padding:1px 15px;
+}
+.order-list table tr{ display:table-row;vertical-align:inherit;border-color:inherit;}
+.order-list table td{  display:table-cell;vertical-align:inherit;border-right:1px solid silver;border-collapse:collapse;padding:9px 15px; } 
+.order-list .tdSize{
+	font-size: 13px;
+  	color: chocolate;
+}
+.order-list table td >div{
+	margin: 6px 0px;
+}
+.b-r-n{
+	border-right: 0px;
+}

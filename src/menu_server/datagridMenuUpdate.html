@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+		<input type="hidden" name="ID" id="" >
+		<p>菜品名：<input type="text" id="menuName" class="easyui-validatebox" data-options="required:true,validateOnCreate:false,validateOnBlur:true"></p>
+		<p>价格：<input type="text" id="moneyPrice" class="easyui-validatebox" data-options="required:true,validateOnCreate:false,validateOnBlur:true"></p>
+		<p>折扣：<input type="text" id="discountPrice" class="easyui-validatebox" data-options="required:true,validateOnCreate:false,validateOnBlur:true"></p>
+		<p>是否置顶：<input type="radio" name="isTop" value="Y">Y
+			<input type="radio" name="isTop" value="N">N
+		</p>
+		<p>
+			 状态：<select id="state">
+					<option value="1">上架</option>
+					<option value="2">下架</option>
+					<option value="0">删除</option>
+				</select> 
+				
+		</p>
+		<p class="div_span">
+			<span onclick="getMenuAdd()" id="sub" class="easyui-linkbutton" data-options="iconCls:'icon-ok'"><b>提交</b></span>
+			<span onclick="getHide()" id="cancel" class="easyui-linkbutton" data-options="iconCls:'icon-cancel'"><b>取消</b></span>
+		</p>	
+</body>
+</html>

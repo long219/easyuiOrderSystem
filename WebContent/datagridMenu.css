@@ -1,0 +1,21 @@
+.bu {
+		cursor: pointer;
+	}
+
+.bu:hover {
+	background: #00bcd4;
+	border: 1px solid #ccc;
+}
+
+.div_span > span{
+	    display: inline-block;
+	    width: 88px;
+	    background: aquamarine;
+	    text-align: center;
+	    cursor: pointer;
+	    border-radius: 10px;
+	    margin-left: 21px;
+}
+.div_span > span:hover{
+	color: red;
+}

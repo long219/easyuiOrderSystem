@@ -1,0 +1,20 @@
+
+<link rel="stylesheet" type="text/css" href="datagridOrder.css">
+<table id = "orderTb"></table>
+<div id="ordderSearch">
+	<p><a id="btn" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-no'" style="border-radius: 10px;width: 99px" onclick="getUpdateState(1)">取消订单</a>
+		<a href='javascript:void(0)' class="easyui-linkbutton" data-options="iconCls:'icon-reload',plain:true" onclick="datagridOrRefresh()">刷新</a>
+	</p>
+	<!-- 用户名：<input id="orSearch" type="text" style="width:300px">
+	<a id="btn" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-search'" style="border-radius: 10px;width: 99px">搜索</a> -->
+	<p>
+		<a id="btn" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-search'" style="border-radius: 10px;width: 99px" onclick="getAdminStateQueryOrder('all')">全部订单</a>
+		<a id="btn" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-search'" style="border-radius: 10px;width: 99px" onclick="getAdminStateQueryOrder(1)">未接单</a>
+		<a id="btn" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-search'" style="border-radius: 10px;width: 99px" onclick="getAdminStateQueryOrder(2)">待生产</a>
+		<a id="btn" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-search'" style="border-radius: 10px;width: 99px" onclick="getAdminStateQueryOrder(3)">待收货</a>
+		<a id="btn" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-search'" style="border-radius: 10px;width: 99px" onclick="getAdminStateQueryOrder(4)">完成订单</a>
+		<a id="btn" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-search'" style="border-radius: 10px;width: 99px" onclick="getAdminStateQueryOrder(5)">取消订单</a>
+	</p> 
+</div>
+<div id ='winCancel'></div>
+<script type="text/javascript" src="datagridOrder.js"></script>

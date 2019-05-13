@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="jquery-1.10.2.js"></script>
+<script type="text/javascript" src="jquery.easyui.min.js"></script>
+<script type="text/javascript" src="easyui-lang-zh_CN.js"></script>
+<link rel="stylesheet" type="text/css" href="themes/material/easyui.css">
+
+<title>用户</title>
+<style type="text/css">
+	.divsyte{
+		margin: 0 auto;
+	    width: 193px;	  
+	    margin-top: 295px;
+	    font-family: cursive;
+	}
+
+	button{
+		background-color: #3cc3d4;
+	    width: 61px;
+	    margin-left: 13px;
+	    cursor: pointer;
+	    border: 1px solid #00BCD4;
+	    border-radius: 10px;
+	}
+	.divsyte h3{
+		    color: aquamarine;
+		    margin-left: 41px;
+	}
+</style>
+
+<script type="text/javascript">
+	$(function(){
+		//easyui输入框
+		$("#username").textbox({
+			prompt:'请输入账号（手机号）',
+			type:"text" 
+		});
+
+		$("#password").textbox({
+			prompt:"请输入密码",
+			type:"password"
+		});
+
+		$("#enterd").click(function(){
+			
+			var userArray = {};
+			//获取用户名 //$("input[name=username]").val();	
+			var username = $("#username").textbox("getValue");		
+			userArray.phone = username;
+
+			//获取用户密码  $("input[name=password]").val();
+			var password = $("#password").textbox("getValue");
+			userArray.password = password;
+			adMenu(userArray);
+			
+		});
+
+		function adMenu(userArray){
+			var dataUser={
+				list:JSON.stringify(userArray)
+			}
+			$.ajax({
+				url:"userRegister?method=enterd",
+				type:"POST",
+				async:true,
+				data:dataUser,
+				dataType:"text",
+				success:function(text){
+					if("管理员界面"==text){
+						location.href="adminMain.html?name="+userArray.phone
+					}else if("普通会员界面"==text){
+						location.href="userMain.html?name="+userArray.phone
+					}else{
+						$.messager.alert("提示",text);	
+					}				
+				}
+			});
+		}
+
+		$("#password").textbox("textbox").keyup(function(){
+			
+			var userArray = {};
+			//获取用户名
+			
+			var username = $("#username").textbox("getValue");		
+			userArray.phone = username;
+
+			//获取用户密码  
+			var password = $("#password").textbox("getValue");
+			userArray.password = password;
+			
+			//获取当前对象的值
+			var inputvl = $(this).val();
+			//获取键盘按键的值（返回是 Unicode 一个值）
+			var code = event.keyCode;
+			if (code==13) {
+				adMenu(userArray);
+			}
+		})
+		
+		//跳转到注册界面
+		$("#register").click(function(){
+			location.href="register.html";
+		})
+	});
+
+</script>
+</head>
+<body background="5bbef0510e4df.jpg">
+	<div>
+		<div class="divsyte">
+			<h3>电商系统</h3>
+			<P><input id="username" autocomplete="off" ></P>
+			<P><input id="password" name="enter"></P>
+			<p><button id="enterd">登录</button>  <button id="register">注册</button></p>
+		</div>
+	</div>
+</body>
+</html>

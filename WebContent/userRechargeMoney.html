@@ -1,0 +1,55 @@
+
+<meta charset="utf-8">
+<div style="width: 70%;height: 100%;margin:0 auto;">
+	<div style="height: 10%;"></div>
+	<div style="height: 90%;">
+		<img src="mayuan.jpeg" alt="" style="width: 50%;height: 60%;display: inline;float: left;">
+		<!-- 内容 -->
+		<div>
+			<h1 style="text-align: center">About Me<br><span style="font-size: 15px;margin-left: 120px">——周某</span></h1>	
+			<div style="position:relative;left: 55px;width: 110%;">
+				<p>打工 ？打工这辈子不可能打工的，生意又不会做，只有偷东西，才能维持得了生活这样子！！</p>
+				<p>想一想 ，不充钱你会变的更强吗？ </p>
+				<p>只有充钱你才能变的更强 </p>
+				<p>我小马说：我对钱不感兴趣，我这辈子最后悔的事就是创建了阿里 </p>
+				<p>同志们9号到了该还花呗了</p>
+			</div>
+			<p style=" text-align: center ; color: OrangeRed">充值金额：<input id="toUpMoney"></p>
+			<div style="padding: 10px;margin-left: 55%">
+				<a onclick="saveUserInfo()" href="javascript:void(0)" class="easyui-linkbutton c6" data-options="iconCls:'icon-pay2'" style="margin-left: 35%;border-radius: 10px;width: 99px">支付</a>
+			</div>
+			
+		</div>
+	</div>
+</div>
+<div id="rechargeWin"></div>
+<script type="text/javascript">
+	//创建命名空间
+	namespace.ns("easyuiOrderSystem.js.userRechargeMoney");
+	//方法定义
+	easyuiOrderSystem.js.userRechargeMoney={
+		init:function(){
+			$("#toUpMoney").textbox({ });
+		}
+	}
+	//获取用户Id
+	var userID =getUserId();
+	function saveUserInfo(){
+		//获取充值的金额
+		var mony = $("#toUpMoney").textbox("getValue");
+		var toMony={
+			money:mony,
+			userId:userID
+		}
+		$.ajax({
+			url:"orderServlet?mothed=toUpMoney",
+			type:"POST",
+			data:toMony,
+			dataType:"text",
+			success:function(text){
+				$.messager.alert("提示！","充值成功！！");
+				$('#userTab').tabs('getTab',"个人充值").panel("refresh");
+			}
+		})
+	}
+</script>
